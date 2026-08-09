@@ -37,11 +37,11 @@ class Interfaz:
             if opcion == 1:
                 self.menu_reporte_carga()
             elif opcion == 2:
-                pass
+                self.menu_consulta_tiempo_real()
             elif opcion == 3:
-                pass
+                self.menu_estadisticas_sesion()
             elif opcion == 4:
-                pass
+                self.menu_historico()
             elif opcion == 5:
                 print()
                 print("\n Gracias por utilizar MeteoCaracas!!")
