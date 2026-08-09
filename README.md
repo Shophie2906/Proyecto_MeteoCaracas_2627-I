@@ -47,8 +47,8 @@ PROYECTO_METEOCARACAS_2627-I/
 
 *Datos de los Integrantes:*
    * Ana Mercedes Cabrera /C.I. 32.122.147 / Carnet: 20251110058
-   * Elena Sanchez /C.I. 31.874.786 /20241110245
-   * Cristian Pisano /C.I. 34.559.130 /
+   * Elena Sanchez /C.I. 31.874.786 /20241110245 
+   * Cristian Pisano /C.I. 34.559.130 / 20261110583
    
  *Datos de la Asignatura y Sección:*
    * Nombre de la materia: Algoritmos y Programacion
