@@ -1,8 +1,15 @@
+import json
 from Interfaz import Interfaz
 
+
+
+
 def main():
+    '''Ejecuta el flujo principal del programa'''
     interfaz = Interfaz
     interfaz.Start()
-main()
+
+if __name__ == "__main__":
+    main()
 
 

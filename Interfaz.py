@@ -67,7 +67,7 @@ class Interfaz:
         print("\t 2- Busqueda directa por Localidad (nombre)")
         print("\t 3- Volver al menu principal")
         
-        consulta = int(input("Seleccione la modalidad de consulta (1-3): ", 1, 3))
+        consulta = self.validar_entera("Seleccione la modalidad de consulta (1-3): ", 1, 3)
         
         if consulta == 1: 
             pass
@@ -145,7 +145,7 @@ class Interfaz:
             print()
             for mun in self.municipios:
                 sin_coords = [loc for loc in mun.localidades if not loc.tiene_coordenadas()]
-                print(f"\ Municipio: {mun.nombre} 9{len(sin_coords)} localidades)")
+                print(f" Municipio: {mun.nombre} ({len(sin_coords)} localidades)")
                 if sin_coords:
                     for loc in sin_coords:
                         print(f"\t {loc.nombre}")
