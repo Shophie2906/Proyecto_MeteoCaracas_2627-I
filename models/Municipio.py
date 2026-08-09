@@ -1,5 +1,5 @@
 # Importamos la clase Localidad que está en la misma carpeta models/
-from Localidad import Localidad
+from .Localidad import Localidad
 
 class Municipio:
     """Clase contenedora que agrupa y administra las localidades de un municipio."""
