@@ -1,0 +1,48 @@
+{
+  "municipios": [
+    {
+      "nombre": "Baruta",
+      "localidades": [
+        { "nombre": "Las Mercedes", "latitud": 10.4833, "longitud": -66.8611 },
+        { "nombre": "El Cafetal", "latitud": 10.4692, "longitud": -66.8406 },
+        { "nombre": "Sartenejas", "latitud": null, "longitud": null },
+        { "nombre": "Prados del Este", "latitud": null, "longitud": null }
+      ]
+    },
+    {
+      "nombre": "El Hatillo",
+      "localidades": [
+        { "nombre": "Pueblo de El Hatillo", "latitud": 10.4344, "longitud": -66.8278 },
+        { "nombre": "La Lagunita", "latitud": 10.4250, "longitud": -66.8150 },
+        { "nombre": "El Encantado", "latitud": null, "longitud": null }
+      ]
+    },
+    {
+      "nombre": "Chacao",
+      "localidades": [
+        { "nombre": "Altamira", "latitud": 10.4962, "longitud": -66.8532 },
+        { "nombre": "Los Palos Grandes", "latitud": 10.4960, "longitud": -66.8450 },
+        { "nombre": "El Rosal", "latitud": 10.4880, "longitud": -66.8620 },
+        { "nombre": "La Castellana", "latitud": null, "longitud": null }
+      ]
+    },
+    {
+      "nombre": "Sucre",
+      "localidades": [
+        { "nombre": "Petare", "latitud": 10.4800, "longitud": -66.8000 },
+        { "nombre": "Los Dos Caminos", "latitud": 10.4930, "longitud": -66.8330 },
+        { "nombre": "La Urbina", "latitud": null, "longitud": null },
+        { "nombre": "California Norte", "latitud": null, "longitud": null }
+      ]
+    },
+    {
+      "nombre": "Libertador",
+      "localidades": [
+        { "nombre": "El Recreo", "latitud": 10.4950, "longitud": -66.8800 },
+        { "nombre": "Candelaria", "latitud": 10.5050, "longitud": -66.9050 },
+        { "nombre": "San Bernardino", "latitud": null, "longitud": null },
+        { "nombre": "Sucre (Catia)", "latitud": null, "longitud": null }
+      ]
+    }
+  ]
+}
