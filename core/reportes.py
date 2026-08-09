@@ -1,31 +1,14 @@
-from core.analizador import AnalizadorDatos
+class GeneradorReportes:
+    """Módulo para dar formato imprimible a los datos."""
 
-class Reportador:
-
-    def mostrar_resumen(estacion):
-        registros = estacion.obtener_registros()
+    @staticmethod
+    def imprimir_clima_actual(municipio, clima):
+        print("=" * 40)
+        print(f" CLIMA ACTUAL EN: {municipio.nombre.upper()}")
+        print("=" * 40)
+        print(f" Temp. Registrada: {clima.temperatura} °C")
+        print(f" Humedad Relativa: {clima.humedad} %")
+        print(f" Precipitación:   {clima.precipitacion} mm")
+        print(f" Viento:          {clima.velocidad_viento} km/h")
+        print("=" * 40)
         
-        print("\n" + "="*45)
-        print(f"   RESUMEN METEOROLÓGICO - {estacion.nombre.upper()}")
-        print("="*45)
-        
-        if not registros:
-            print("No hay registros almacenados todavía.")
-            return
-
-        print(f"Total de mediciones: {len(registros)}")
-        print(f"• Temp. Promedio : {AnalizadorDatos.calcular_promedio_temperatura(registros)} °C")
-        print(f"• Temp. Máxima   : {AnalizadorDatos.obtener_temperatura_maxima(registros)} °C")
-        print(f"• Temp. Mínima   : {AnalizadorDatos.obtener_temperatura_minima(registros)} °C")
-        print(f"• Lluvia Acumulada: {AnalizadorDatos.calcular_lluvia_total(registros)} mm")
-        print("="*45)
-
-    def listar_historial(estacion):
-        registros = estacion.obtener_registros()
-        print("\n--- HISTORIAL DE LECTURAS ---")
-        if not registros:
-            print("No hay lecturas registradas.")
-            return
-            
-        for idx, reg in enumerate(registros, start=1):
-            print(f"{idx}. {reg}")

@@ -1,37 +1,44 @@
 from datetime import datetime
-from Localidad import Localidad
 
 class ClimaActual:
+    """Clase que representa el reporte meteorológico en tiempo real de una localidad."""
+
     def __init__(self, temperatura, humedad, velocidad_viento, codigo_wmo):
-        self.temperatura = temperatura                          
-        self.velocidad_viento = velocidad_viento 
+        # Guardamos la temperatura actual recibida de la API (°C)
+        self.temperatura = temperatura
+        
+        # Guardamos el porcentaje de humedad relativa (%)
+        self.humedad = humedad
+        
+        # Guardamos la velocidad del viento (km/h)
+        self.velocidad_viento = velocidad_viento
+        
+        # Código numérico estandarizado que devuelve Open-Meteo para el estado del tiempo
         self.codigo_wmo = codigo_wmo
+        
+        # Registramos automáticamente la fecha y hora exacta en que se generó este reporte
         self.fecha_hora = datetime.now()
-        
-    def obtener_estado_texto(self): 
-        # Traducir el codigo numerico de la api 
-        if self.codigo_wmo == 0:
-            print("Cielo Despejado")
-        elif self.codigo_wmo == 1:
-            print("Parcialmente Nublado")
-        elif self.codigo_wmo == 2:
-            print("Niebla")
-        elif self.codigo_wmo == 3:
-            print("Llovizna")  
-        elif self.codigo_wmo == 4:
-            print("Lluvia")
-        elif self.codigo_wmo == 5:
-            print("Nevada")
-        elif self.codigo_wmo == 6:
-            print("Aguacero")
-        elif self.codigo_wmo == 7:
-            print("Tormenta electrica")
-        else: 
-            print("Desconocido")  
-            
-    def mostrar_resporte_corto(self):
+
+    def obtener_estado_texto(self):
+        """Mapea el código numérico WMO de la API a una descripción en español."""
+        # Diccionario de equivalencias según la documentación oficial de WMO / Open-Meteo
+        codigos = {
+            0: "Cielo Despejado",
+            1: "Parcialmente Nublado",
+            2: "Niebla",
+            3: "Llovizna",
+            4: "Lluvia",
+            5: "Nevada",
+            6: "Aguacero",
+            7: "Tormenta eléctrica"
+        }
+        # .get() busca la clave en el diccionario; si no la encuentra, retorna "Desconocido"
+        return codigos.get(self.codigo_wmo, "Desconocido")
+
+    def mostrar_reporte_corto(self):
+        """Imprime un resumen legible de las condiciones climáticas."""
+        # Obtenemos la traducción en texto del código WMO
         estado = self.obtener_estado_texto()
-        print(f" Temperatura: {self.temperatura}°C | Viento: {self.velocidad_viento} km/h")    
         
-        
-        
+        # Imprimimos en consola los valores formateados
+        print(f"Estado: {estado} | Temp: {self.temperatura}°C | Humedad: {self.humedad}% | Viento: {self.velocidad_viento} km/h")
