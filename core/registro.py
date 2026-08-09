@@ -1,24 +1,31 @@
 from datetime import datetime
-from models.estacion import Registro
+from models.RegistroHistorico import RegistroHistorico
 
-def pedir_numero(mensaje):
-    while True:
-        try:
-            return float(input(mensaje))
-        except ValueError:
-            print("Error: Ingresa un numero valido.")
+class RegistroController:
+    """Gestiona el flujo de registro histórico y almacenamiento de lecturas."""
 
-def registrar_datos():
-    print("\n--- Nuevo Registro Meteorologico ---")
-    
-    fecha_actual = datetime.now().strftime("%Y-%m-%d %H:%M")
-    print(f"Fecha de registro: {fecha_actual}")
+    def __init__(self):
+        self.historico = []
 
-    temp = pedir_numero("Temperatura (C): ")
-    hum = pedir_numero("Humedad (%): ")
-    presion = pedir_numero("Presion (hPa): ")
-    lluvia = pedir_numero("Lluvia (mm): ")
+    def registrar_lectura(self, municipio, clima):
+        """
+        Toma un municipio y su ClimaActual e instancia un RegistroHistorico.
+        """
+        ahora = datetime.now()
+        registro = RegistroHistorico(
+            mes=ahora.strftime("%B"),
+            anio=ahora.year,
+            temperatura=clima.temperatura,
+            humedad=clima.humedad,
+            precipitacion=clima.precipitacion,
+            velocidad_viento=clima.velocidad_viento
+        )
+        self.historico.append({
+            "municipio": municipio.nombre,
+            "fecha": ahora.strftime("%Y-%m-%d %H:%M:%S"),
+            "datos": registro.__dict__
+        })
+        return registro
 
-    nuevo = Registro(fecha_actual, temp, hum, presion, lluvia)
-    print("¡Registro guardado con exito!")
-    return nuevo
+    def obtener_todos(self):
+        return self.historico
