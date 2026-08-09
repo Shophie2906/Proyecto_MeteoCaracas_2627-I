@@ -1,35 +1,33 @@
 class RegistroHistorico:
-    """Clase que representa una medición mensual consolidada en las consultas de históricos."""
+    """Clase que representa el resumen meteorológico mensual de una localidad para análisis histórico."""
 
     def __init__(self, mes, anio, temperatura, humedad, precipitacion, velocidad_viento):
-        # Nombre o número del mes del registro
+        # Nombre del mes (ej. "Enero", "Febrero")
         self.mes = mes
         
-        # Año correspondiente (int)
+        # Año del registro (int, ej. 2023)
         self.anio = anio
         
-        # Promedio de temperatura registrada en ese mes (°C)
+        # Temperatura promedio mensual (°C)
         self.temperatura = temperatura
         
-        # Promedio de humedad relativa (%)
+        # Humedad relativa promedio mensual (%)
         self.humedad = humedad
         
-        # Suma o acumulado de precipitaciones (mm)
+        # Precipitación acumulada mensual (mm)
         self.precipitacion = precipitacion
         
-        # Promedio de velocidad del viento (km/h)
+        # Velocidad promedio del viento (km/h)
         self.velocidad_viento = velocidad_viento
 
     def obtener_nombre_mes(self):
-        """Formatea el nombre del mes para presentarlo de manera limpia."""
-        if isinstance(self.mes, str):
-            # Quita espacios al inicio/final (.strip()) y pone la inicial en mayúscula (.capitalize())
-            return self.mes.strip().capitalize()
+        """Retorna el nombre del mes asociado al registro histórico."""
         return str(self.mes)
 
+    def mostrar_resumen_mensual(self):
+        """Imprime un resumen formateado de las métricas registradas en el mes."""
+        print(f"🗓️ {self.mes} {self.anio} | Temp Prom: {self.temperatura}°C | Hum: {self.humedad}% | Prec: {self.precipitacion}mm | Viento: {self.velocidad_viento} km/h")
+
     def __str__(self):
-        """Formatea la salida en texto para imprimir cómodamente el registro histórico."""
-        mes_limpio = self.obtener_nombre_mes()
-        # Retornamos (importante: return, no print) el texto multilínea estructurado
-        return (f"[{mes_limpio} {self.anio}] - Temp: {self.temperatura}°C | Humedad: {self.humedad}%\n"
-                f"            | Precipitación: {self.precipitacion} mm | Viento: {self.velocidad_viento} km/h")
+        """Representación formal en texto del registro histórico."""
+        return f"RegistroHistorico({self.mes} {self.anio} - Temp: {self.temperatura}°C, Prec: {self.precipitacion}mm)"

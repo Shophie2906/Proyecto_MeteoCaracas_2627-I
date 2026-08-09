@@ -1,7 +1,9 @@
 from db.json_loader import JSONLoader
 from tools.gestor_clima import GestorClima
 from tools.gestor_historico import GestorHistorico
-from interfaz import Interfaz
+
+#  Si tu archivo es interfaz.py úsalo en minúsculas. Si lo guardaste como Interfaz.py, pon: from Interfaz import Interfaz
+from Interfaz import Interfaz 
 
 def main():
     """Punto de entrada principal para ejecutar la aplicación MeteoCaracas."""
@@ -17,7 +19,7 @@ def main():
     gestor_clima = GestorClima(municipios)
     gestor_historico = GestorHistorico()
 
-    # 3. Instanciación de la interfaz gráfica por consola
+    # 3. Instanciación de la interfaz por consola
     interfaz = Interfaz(gestor_clima, gestor_historico)
 
     # 4. Presentación automática del reporte inicial de carga (Requerimiento 1)
