@@ -1,2 +1,13 @@
+# Cache de Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Archivos de VS Code / Sistema
+.vscode/
+.DS_Store
