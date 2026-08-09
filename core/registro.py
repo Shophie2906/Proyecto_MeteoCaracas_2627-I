@@ -1,6 +1,5 @@
 from datetime import datetime
 from models.RegistroHistorico import RegistroHistorico
-
 class RegistroController:
     """Gestiona el flujo de registro histórico y almacenamiento de lecturas."""
 
@@ -8,9 +7,7 @@ class RegistroController:
         self.historico = []
 
     def registrar_lectura(self, municipio, clima):
-        """
-        Toma un municipio y su ClimaActual e instancia un RegistroHistorico.
-        """
+        """ Toma un municipio y su ClimaActual e instancia un RegistroHistorico"""
         ahora = datetime.now()
         registro = RegistroHistorico(
             mes=ahora.strftime("%B"),
