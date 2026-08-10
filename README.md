@@ -1,8 +1,9 @@
 # Proyecto_MeteoCaracas_2627-I - Sistema de Monitoreo Meteorológico
 Asignatura: Algoritmos y Programación.
 Prof. Christian Guillen.
+
 Equipo: 
-- Ana Mercedes Cabrera. C.I. 32.122.147 Carnet:20251110058
+- Ana Mercedes Cabrera. C.I. 32.122.147 Carnet: 20251110058
 - Cristian Pisano. C.I. 34.559.130. Carnet: 20261110583
 - Elena Sánchez. C.I. 31.874.786 Carnet: 20241110245
 
