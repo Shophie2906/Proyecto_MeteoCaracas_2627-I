@@ -1,7 +1,7 @@
 from db.json_loader import JSONLoader
 from tools.gestor_clima import GestorClima
 from tools.gestor_historico import GestorHistorico
-from interfaz import Interfaz
+from Interfaz import Interfaz
 
 def main():
     """Punto de entrada principal para ejecutar la aplicación MeteoCaracas."""
