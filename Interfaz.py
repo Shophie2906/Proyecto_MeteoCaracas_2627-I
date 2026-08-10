@@ -70,7 +70,7 @@ class Interfaz:
             elif opcion == 4:
                 self.menu_historico()
             elif opcion == 5:
-                print("\n Gracias por utilizar MeteoCaracas! Hasta luego.\n")
+                print("\n ¡Gracias por utilizar MeteoCaracas! Hasta luego.\n")
                 break
 
     def mostrar_reporte_carga_inicial(self):
@@ -240,6 +240,11 @@ class Interfaz:
         fecha_inicio = self.validar_fecha(" Fecha de inicio (ej. 2023-01-01): ")
         fecha_fin = self.validar_fecha(" Fecha de fin    (ej. 2023-12-31): ")
 
+        # Validamos que la fecha de inicio no sea mayor a la de fin
+        if fecha_inicio > fecha_fin:
+            print("\n [!] Error: La fecha de inicio no puede ser posterior a la fecha de fin.")
+            return
+
         print(f"\n [+] Procesando datos historicos para {loc_sel.nombre} entre {fecha_inicio} y {fecha_fin}...")
         registros, promedios, extremos = self.gestor_historico.consultar_historico(
             loc_sel, fecha_inicio, fecha_fin
@@ -264,7 +269,7 @@ class Interfaz:
         print(f"  |- Precipitación promedio:  {promedios['precipitacion']} mm")
         print(f"  |- Velocidad viento:        {promedios['velocidad_viento']} km/h")
 
-        # 4.c Mostrar resumen de extremes por año
+        # 4.c Mostrar resumen de extremos por año
         print("\n REGISTROS EXTREMOS POR AÑO EN EL PERIODO:")
         print(f"  |- Ano mas caluroso:                  {extremos['caluroso']}")
         print(f"  |- Ano mas fresco:                    {extremos['fresco']}")
