@@ -26,26 +26,36 @@ class JSONLoader:
         try:
             with open(ruta_json, "r", encoding="utf-8") as file:
                 datos = json.load(file)
-                municipios = []
 
-                for item in datos.get("municipios", []):
-                    nombre_mun = item.get("nombre")
-                    m = Municipio(nombre=nombre_mun)
+            # Diccionario auxiliar para agrupar localidades por municipio
+            municipios_dict = {}
 
-                    for loc in item.get("localidades", []):
-                        nombre_loc = loc.get("nombre")
-                        lat = loc.get("latitud")
-                        lon = loc.get("longitud")
+            for item in datos:
+                nombre_mun = item.get("municipio")
+                if not nombre_mun:
+                    continue
 
-                        # Si latitud y longitud vienen como None o ausentes en el JSON,
-                        # se instanciará la Localidad con latitud=None y longitud=None.
-                        localidad_obj = Localidad(nombre=nombre_loc, latitud=lat, longitud=lon)
-                        m.agregar_localidad(localidad_obj)
+                # Si el municipio no ha sido creado, lo instanciamos
+                if nombre_mun not in municipios_dict:
+                    municipios_dict[nombre_mun] = Municipio(nombre=nombre_mun)
 
-                    municipios.append(m)
+                # Creamos la localidad y se la agregamos al municipio
+                # (Ajusta los nombres de las claves según las propiedades de tu clase Localidad)
+                loc = Localidad(
+                    nombre=item.get("nombre") or item.get("localidad"),
+                    latitud=item.get("latitud"),
+                    longitud=item.get("longitud"),
+                )
 
-                return municipios
+                # Si tu clase Municipio tiene un método agregar_localidad o atributo localidades:
+                if hasattr(municipios_dict[nombre_mun], "agregar_localidad"):
+                    municipios_dict[nombre_mun].agregar_localidad(loc)
+                elif hasattr(municipios_dict[nombre_mun], "localidades"):
+                    municipios_dict[nombre_mun].localidades.append(loc)
 
-        except (json.JSONDecodeError, KeyError, Exception) as e:
+            return list(municipios_dict.values())
+
+        except Exception as e:
             print(f"Error al leer/procesar el archivo JSON: {e}")
             return []
+        
