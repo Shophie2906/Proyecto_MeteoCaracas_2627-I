@@ -26,7 +26,7 @@ class RegistroHistorico:
 
     def mostrar_resumen_mensual(self):
         """Imprime un resumen formateado de las métricas registradas en el mes."""
-        print(f"🗓️ {self.mes} {self.anio} | Temp Prom: {self.temperatura}°C | Hum: {self.humedad}% | Prec: {self.precipitacion}mm | Viento: {self.velocidad_viento} km/h")
+        print(f"{self.mes} {self.anio} | Temp Prom: {self.temperatura}°C | Hum: {self.humedad}% | Prec: {self.precipitacion}mm | Viento: {self.velocidad_viento} km/h")
 
     def __str__(self):
         """Representación formal en texto del registro histórico."""

@@ -23,7 +23,7 @@ class Localidad:
         """Muestra en pantalla el detalle completo de la localidad y su clima si lo tiene."""
         # Operador ternario para formatear la cadena de coordenadas o indicar que es NULL
         coords = f"({self.latitud}, {self.longitud})" if self.tiene_coordenadas() else "[Sin coordenadas]"
-        print(f"📍 Localidad: {self.nombre} | Coordenadas: {coords}")
+        print(f" Localidad: {self.nombre} | Coordenadas: {coords}")
         
         # Verificamos si ya se le asignó un clima a esta localidad
         if self.clima_actual:

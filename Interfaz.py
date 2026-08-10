@@ -271,10 +271,10 @@ class Interfaz:
 
         # 4.c Mostrar resumen de extremos por año
         print("\n REGISTROS EXTREMOS POR AÑO EN EL PERIODO:")
-        print(f"  |- Ano mas caluroso:                  {extremos['caluroso']}")
-        print(f"  |- Ano mas fresco:                    {extremos['fresco']}")
-        print(f"  |- Ano con mayor precipitacion:       {extremos['precipitacion']}")
-        print(f"  |- Ano con mayor humedad relativa:    {extremos['humedad']}")
+        print(f"  |- Año mas caluroso:                  {extremos['caluroso']}")
+        print(f"  |- Año mas fresco:                    {extremos['fresco']}")
+        print(f"  |- Año con mayor precipitacion:       {extremos['precipitacion']}")
+        print(f"  |- Año con mayor humedad relativa:    {extremos['humedad']}")
         print("=" * 65)
 
         # 4.d Opción de mostrar gráfico comparativo con Matplotlib
